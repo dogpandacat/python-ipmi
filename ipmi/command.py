@@ -292,8 +292,9 @@ class Command(object):
         :param callback_args: optional arguments to callback
         :returns: dict or True -- If callback is not provided, the response
         """
-        response = self.ipmi_session.raw_command(netfn=0,
-                                                 command=1,
+        response = self.ipmi_session.raw_command(netfn=netfn,
+                                                 command=command,
+                                                 data=data,
                                                  callback=callback,
                                                  callback_args=callback_args)
         if response:  # this means there was no callback
